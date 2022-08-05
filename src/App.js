@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import Card from './components/quoteCard';
+import NextButton from './components/nextButton';
+import FooterContent from './components/footerContent.js';
+import {useState} from 'react';
 import './App.css';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [quoteContent, setQuoteContent] = useState("Loading...")
+
+  const fetchText = () => {
+    setIsLoading(true);
+    fetch('https://v1.hitokoto.cn/')
+      .then((response) => response.json())
+      .then((result) => {
+        console.log("Loading result");
+        setQuoteContent(result)
+      })
+      .catch(console.error)
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Card value={quoteContent} isLoading={isLoading}/>
+      <NextButton onClick={fetchText} />
+      <FooterContent />
     </div>
   );
 }

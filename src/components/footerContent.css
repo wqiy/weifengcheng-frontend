@@ -1,0 +1,14 @@
+.footerContent {
+    position: relative;
+    width: 200px;
+    height: 40px;
+    margin: 0 auto;
+    top: 50vh;
+    color: rgb(185, 185, 185);
+    text-align: center;
+}
+
+.footerContent a {
+    text-decoration: none;
+    color:rgb(185, 185, 185);
+}
