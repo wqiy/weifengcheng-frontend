@@ -1,12 +1,12 @@
-import Card from './components/quoteCard';
-import NextButton from './components/nextButton';
-import FooterContent from './components/footerContent.js';
+import Card from './components/quoteCard/quoteCard';
+import NextButton from './components/nextButton/nextButton';
+import FooterContent from './components/footerContent/footerContent';
 import {useState} from 'react';
 import './App.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
-  const [quoteContent, setQuoteContent] = useState("Loading...")
+  const [quoteContent, setQuoteContent] = useState("一言足以慰风尘")
 
   const fetchText = () => {
     setIsLoading(true);
